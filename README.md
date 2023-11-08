@@ -1,61 +1,38 @@
-# vscode extension boilerplate
+# Label Explorer for VS Code
 
-<div align="center">
+## Problem Statement
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/YuTengjing.awesome-vscode-extension-boilerplate)](https://marketplace.visualstudio.com/items/YuTengjing.awesome-vscode-extension-boilerplate/changelog) [![Installs](https://img.shields.io/visual-studio-marketplace/i/YuTengjing.awesome-vscode-extension-boilerplate)](https://marketplace.visualstudio.com/items?itemName=YuTengjing.awesome-vscode-extension-boilerplate) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/YuTengjing.awesome-vscode-extension-boilerplate)](https://marketplace.visualstudio.com/items?itemName=YuTengjing.awesome-vscode-extension-boilerplate) [![Rating Star](https://img.shields.io/visual-studio-marketplace/stars/YuTengjing.awesome-vscode-extension-boilerplate)](https://marketplace.visualstudio.com/items?itemName=YuTengjing.awesome-vscode-extension-boilerplate&ssr=false#review-details) [![Last Updated](https://img.shields.io/visual-studio-marketplace/last-updated/YuTengjing.awesome-vscode-extension-boilerplate)](https://github.com/tjx666/awesome-vscode-extension-boilerplate)
+In the realm of software development, particularly with languages like JavaScript, managing the project's file structure can become a daunting task. As projects scale, developers grapple with complex folder hierarchies, where keeping track of each file's path is critical. This complexity can slow down development, increase cognitive load, and lead to errors.
 
-![CI](https://github.com/tjx666/awesome-vscode-extension-boilerplate/actions/workflows/ci.yml/badge.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![Github Open Issues](https://img.shields.io/github/issues/tjx666/awesome-vscode-extension-boilerplate)](https://github.com/tjx666/awesome-vscode-extension-boilerplate/issues) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+## The Solution: Label Explorer
 
-</div>
+Label Explorer is a VS Code extension designed to streamline project organization by adopting a label-based approach for file and directory management. It allows developers to attach multiple labels to their files, thereby enabling them to exist in multiple logical groupings simultaneously, independent of their physical location in the directory structure.
 
-## Features
+### Key Features:
 
-- github actions support publish extension to both vs marketplace and open vsx
-- auto generate changelog and publish github release, make sure you enabled the write permission of github actions
-- pnpm/eslint/prettier/ling-staged/simple-git-hooks/stale-dep
-- use esbuild to bundle extension
+- **Multiple Labels per Item:** Assign multiple labels to a single file or directory, allowing for multifaceted categorization.
+- **Label-Based Navigation:** Utilize the Label Explorer pane to navigate the codebase through labels, making it easier to access all related files for a given feature or component.
+- **Workspace Settings Integration:** All label data and configurations are neatly stored in the `.vscode` folder, ensuring that label settings are consistent across team members and environments.
 
-## Setup
+## Why Labels?
 
-After fork this repository and clone it to local, run:
+- **Non-Linear Organization:** Files can serve multiple roles across different parts of your application, and labels reflect this versatility better than static folders.
+- **Enhanced Discoverability:** Quickly locate all the files related to a specific feature, task, or bug fix without scouring through folders.
+- **Scalability:** Unlike rigid folder structures that become unwieldy as projects grow, a label system scales gracefully.
 
-```bash
-cd <your-extension-directory>
-npx setup-boilerplate
-```
+## Contributing to Label Explorer
 
-You can also just skip this step and adjust the boilerplate by yourself.
+Label Explorer is an open-source project, and community contributions are essential for its growth and refinement. We welcome contributions in various forms:
 
-## Development
+- **Code Contributions:** Feel free to fork the repository, make changes, and submit a pull request with your enhancements or bug fixes.
+- **Feedback and Ideas:** If you have suggestions or feedback, open an issue on GitHub to discuss them.
+- **Documentation:** Help us improve and expand our documentation to make Label Explorer more accessible to everyone.
+- **Spread the Word:** Star the project on GitHub and share it within your developer network.
 
-Install dependencies by:
+Before contributing, please review our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) for more information on how to get involved.
 
-```shell
-pnpm install
-```
+## Getting Started
 
-Then run and debug extension like in [official documentation](https://code.visualstudio.com/api/get-started/your-first-extension)
+To start using Label Explorer, clone the repository and follow the setup instructions in our [Installation Guide](INSTALL.md).
 
-## Publish
-
-You need set two github actions secrets:
-
-- VS_MARKETPLACE_TOKEN: [Visual Studio Marketplace token](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
-- OPEN_VSX_TOKEN: [Open VSX Registry token](https://github.com/eclipse/openvsx/wiki/Publishing-Extensions#3-create-an-access-token)
-
-```shell
-pnpm release
-```
-
-## My extensions
-
-- [Open in External App](https://github.com/tjx666/open-in-external-app)
-- [VSCode archive](https://github.com/tjx666/vscode-archive)
-- [Neo File Utils](https://github.com/tjx666/vscode-neo-file-utils)
-- [VSCode FE Helper](https://github.com/tjx666/vscode-fe-helper)
-- [Modify File Warning](https://github.com/tjx666/modify-file-warning)
-- [Power Edit](https://github.com/tjx666/power-edit)
-- [Adobe Extension Development Tools](https://github.com/tjx666/vscode-adobe-extension-devtools)
-- [Scripting Listener](https://github.com/tjx666/scripting-listener)
-
-Check all here: [publishers/YuTengjing](https://marketplace.visualstudio.com/publishers/YuTengjing)
+We invite developers of all expertise and backgrounds to contribute to making Label Explorer an indispensable tool for the developer community. Your contributions and support are what will make this project thrive.
