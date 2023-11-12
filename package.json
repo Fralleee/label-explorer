@@ -42,10 +42,38 @@
     ],
     "activationEvents": [],
     "contributes": {
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "labelExplorer",
+                    "title": "Label Explorer",
+                    "icon": "assets/logo.png"
+                }
+            ]
+        },
+        "views": {
+            "labelExplorer": [
+                {
+                    "id": "labelExplorerView",
+                    "name": "Label Explorer"
+                }
+            ]
+        },
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "labelExplorer.manageLabelsContextMenu"
+                }
+            ]
+        },
         "commands": [
             {
-                "command": "awesome-vscode-extension-boilerplate.helloWorld",
-                "title": "Hello World"
+                "command": "labelExplorer.manageLabelsContextMenu",
+                "title": "Manage Labels"
+            },
+            {
+                "command": "labelExplorer.manageLabelsCommandPalette",
+                "title": "Manage Labels from Command Palette"
             }
         ]
     },

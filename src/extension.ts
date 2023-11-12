@@ -1,32 +1,50 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log(
-        'Congratulations, your extension "awesome-vscode-extension-boilerplate" is now active!',
-    );
-
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with registerCommand
-    // The commandId parameter must match the command field in package.json
-    const disposable = vscode.commands.registerCommand(
-        'awesome-vscode-extension-boilerplate.helloWorld',
-        () => {
-            // The code you place here will be executed every time your command is executed
-            // Display a message box to the user
-            vscode.window.showInformationMessage(
-                'Hello World from Awesome VSCode Extension Boilerplate!',
-            );
+    // Command for context menu
+    const disposableContextMenu = vscode.commands.registerCommand(
+        'labelExplorer.manageLabelsContextMenu',
+        (uri: vscode.Uri) => {
+            // uri is the file or folder on which the context menu was invoked
+            vscode.window.showInputBox({ prompt: 'Enter labels' }).then((value) => {
+                console.log({ uri, value });
+                // Handle the entered labels here
+                // You might want to store these labels in a map or a file
+            });
         },
     );
 
-    context.subscriptions.push(disposable);
+    // Command for command palette
+    const disposableCommandPalette = vscode.commands.registerCommand(
+        'labelExplorer.manageLabelsCommandPalette',
+        () => {
+            vscode.window
+                .showQuickPick(getFileFolderList(), {
+                    placeHolder: 'Select a file or folder to label',
+                })
+                .then((selection) => {
+                    if (selection) {
+                        vscode.window
+                            .showInputBox({ prompt: `Enter labels for ${selection.label}` })
+                            .then((value) => {
+                                console.log(value);
+                                // Handle the entered labels here
+                                // You might want to store these labels in a map or a file
+                            });
+                    }
+                });
+        },
+    );
+
+    context.subscriptions.push(disposableContextMenu);
+    context.subscriptions.push(disposableCommandPalette);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}
+
+function getFileFolderList(): Thenable<vscode.QuickPickItem[]> {
+    // Implement logic here to retrieve and return files/folders as QuickPickItems
+    // This can be a list of files/folders from the current workspace
+
+    return new Promise((resolve) => resolve([]));
+}
